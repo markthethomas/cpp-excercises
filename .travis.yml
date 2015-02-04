@@ -4,4 +4,4 @@ compiler:
   - clang
   - gcc
 script:
-  - make homework/homework1 && homework/homework
+  - make homework1 && ./homework1
