@@ -15,11 +15,11 @@ unsigned int Factorial( unsigned int number ) {
 }
 
 // Create test cases
-TEST_CASE( "Factorials are computed", "[factorial]" ) {
-  SECTION("Making sure everything works"){
+SCENARIO( "Factorials are computed", "[factorial]" ) {
+  WHEN("Making sure everything works"){
     REQUIRE( Factorial(1) == 1 );
     REQUIRE( Factorial(2) == 2 );
-    REQUIRE( Factorial(3) == 6 );
+    REQUIRE( Factorial(3) == 1 );
     REQUIRE( Factorial(10) == 3628800 );
   }
 }
