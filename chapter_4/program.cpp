@@ -4,7 +4,7 @@
 #define CATCH_CONFIG_MAIN
 
 
-#include "../catch/catch.hpp"
+#include "../utils/catch.hpp"
 
 #include <iostream>
 #include <iomanip>
