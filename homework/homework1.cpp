@@ -14,3 +14,85 @@
 // DUE:  2/17/2015. NO LATER THAN 5.00 pm
 //
 //
+// h = a + b/2
+
+#define CATCH_CONFIG_MAIN
+
+
+#include "../utils/catch.hpp"
+
+#include <iostream>
+#include <iomanip>
+
+
+double a,b,hypotenuse,
+      longer,shorter,
+      approximation,pythagoran,
+      difference;
+bool sidesAreEqual;
+
+ double determineOrder(double a, double b) {
+    if (a > b) {
+      longer = a;
+    } else if (a < b) {
+      longer = b;
+    } else if (a == b) {
+      sidesAreEqual = true;
+      return sidesAreEqual;
+    }
+    return longer;
+  }
+
+  double approximateHypotenus(double a, double b){
+    return hypotenuse = a + (b / 2);
+  }
+
+SCENARIO("Calculating the hypotenuse"){
+  GIVEN("two lengths of two sides of a right triangle; a < b ") {
+    // double a, b, h;
+    WHEN("two sides are given"){
+      THEN("it should decided which is larger and report that"){
+        REQUIRE( determineOrder(2,1) == 2.0);
+        REQUIRE( determineOrder(2,3) == 3.0);
+        REQUIRE( determineOrder(2,2) == true);
+        REQUIRE( determineOrder(2.1,-2) == 2.1);
+        REQUIRE( determineOrder(-2.1,-2.0) == -2.0);
+
+      }
+    }
+
+    WHEN("we try to approximate the hypotenuse"){
+      THEN("it should return the approximated hypotenuse") {
+        REQUIRE( approximateHypotenus(1.0,1.0) == 1.5);
+        REQUIRE( approximateHypotenus(2.0,10.0) == 7);
+        REQUIRE( approximateHypotenus(1.0,12.2) == 7.1);
+        REQUIRE( approximateHypotenus(1.0,100.0) == 51);
+
+      }
+    }
+
+    // WHEN("two sides are given"){
+    //   THEN("the hypotenuse should be approximated"){
+    //
+    //   }
+    // }
+    //
+    // WHEN("two sides are given"){
+    //   THEN("the hypotenuse should be calculated using the Pythagoran theorem"){
+    //
+    //   }
+    // }
+    //
+    // WHEN("both approximation and pyth. calculation have been done"){
+    //   THEN("find the difference between the two methods"){
+    //
+    //   }
+    // }
+    //
+    // WHEN("All the business logic has done its work"){
+    //   THEN("we need to log everything out to the console"){
+    //
+    //   }
+    // }
+  }
+}
