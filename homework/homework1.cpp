@@ -12,17 +12,18 @@
 // Your source (.cpp) file
 // Word File containing a screen shot of your output. To get a screen capture, use Alt+Prt Screen. Paste inside the Word file.
 // DUE:  2/17/2015. NO LATER THAN 5.00 pm
-//
-//
-// h = a + b/2
+
 
 #define CATCH_CONFIG_MAIN
 
 
 #include "../utils/catch.hpp"
-
+#include <cmath>
+#include <complex>
 #include <iostream>
 #include <iomanip>
+
+using namespace std;
 
 
 double a,b,hypotenuse,
@@ -34,8 +35,10 @@ bool sidesAreEqual;
  double determineOrder(double a, double b) {
     if (a > b) {
       longer = a;
+      shorter = b;
     } else if (a < b) {
       longer = b;
+      shorter = a;
     } else if (a == b) {
       sidesAreEqual = true;
       return sidesAreEqual;
@@ -44,10 +47,24 @@ bool sidesAreEqual;
   }
 
   double approximateHypotenus(double a, double b){
-    return hypotenuse = a + (b / 2);
+    return approximation = a + (b / 2);
   }
 
-SCENARIO("Calculating the hypotenuse"){
+  double calculateHypotenuseWithPyth(double a, double b) {
+    return pythagoran = sqrt(pow(a,2) + pow(b,2));
+  }
+
+  double returnDifference() {
+    return abs(pythagoran - approximation);
+  }
+
+  double approximateAverageDifference() {
+
+  }
+
+
+
+SCENARIO("Getting the order of the given args"){
   GIVEN("two lengths of two sides of a right triangle; a < b ") {
     // double a, b, h;
     WHEN("two sides are given"){
@@ -60,7 +77,12 @@ SCENARIO("Calculating the hypotenuse"){
 
       }
     }
+  }
+}
 
+SCENARIO("Appproximating the hypotenuse"){
+  GIVEN("two lengths of two sides of a right triangle; a < b ") {
+    // double a, b, h;
     WHEN("we try to approximate the hypotenuse"){
       THEN("it should return the approximated hypotenuse") {
         REQUIRE( approximateHypotenus(1.0,1.0) == 1.5);
@@ -70,29 +92,22 @@ SCENARIO("Calculating the hypotenuse"){
 
       }
     }
+  }
+}
 
-    // WHEN("two sides are given"){
-    //   THEN("the hypotenuse should be approximated"){
-    //
-    //   }
-    // }
-    //
-    // WHEN("two sides are given"){
-    //   THEN("the hypotenuse should be calculated using the Pythagoran theorem"){
-    //
-    //   }
-    // }
-    //
-    // WHEN("both approximation and pyth. calculation have been done"){
-    //   THEN("find the difference between the two methods"){
-    //
-    //   }
-    // }
-    //
-    // WHEN("All the business logic has done its work"){
-    //   THEN("we need to log everything out to the console"){
-    //
-    //   }
-    // }
+
+SCENARIO("Calculating the hypotenuse"){
+  GIVEN("two lengths of two sides of a right triangle; a < b ") {
+    // double a, b, h;
+    WHEN("two sides are given"){
+      THEN("it should decided which is larger and report that"){
+        REQUIRE( calculateHypotenuseWithPyth(2,2) == 2.8284271247);
+        REQUIRE( calculateHypotenuseWithPyth(10,11) == 14.8661);
+        REQUIRE( calculateHypotenuseWithPyth(11,30) == 31.9531);
+        REQUIRE( calculateHypotenuseWithPyth(90,20) == 92.1954);
+        REQUIRE( calculateHypotenuseWithPyth(91.13344,33.3) == 97.0268);
+
+      }
+    }
   }
 }
