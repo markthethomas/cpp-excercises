@@ -3,7 +3,7 @@
 //
 // Date: 4/28/2015
 //
-// Program Purpose: This program takes in a number of students surveyed
+// Program Purpose: This program takes in a number of students surveyed, creates an arry based on that number, then allows the user to input survey data for each student in the array. The total, median, and average are returned based on that data. 
 //====================================================================
 
 #include <iomanip>
