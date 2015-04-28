@@ -14,10 +14,8 @@
 // DUE:  2/17/2015. NO LATER THAN 5.00 pm
 
 
-#define CATCH_CONFIG_MAIN
 
 
-#include "../utils/catch.hpp"
 #include <cmath>
 #include <complex>
 #include <iostream>
@@ -25,6 +23,7 @@
 
 using namespace std;
 
+int main() {
 
 double a,b,hypotenuse,
       longer,shorter,
@@ -63,51 +62,55 @@ bool sidesAreEqual;
   }
 
 
+  cout >> "Enter the two sides of a right triangle separated by a space:  3 4";
 
-SCENARIO("Getting the order of the given args"){
-  GIVEN("two lengths of two sides of a right triangle; a < b ") {
-    // double a, b, h;
-    WHEN("two sides are given"){
-      THEN("it should decided which is larger and report that"){
-        REQUIRE( determineOrder(2,1) == 2.0);
-        REQUIRE( determineOrder(2,3) == 3.0);
-        REQUIRE( determineOrder(2,2) == true);
-        REQUIRE( determineOrder(2.1,-2) == 2.1);
-        REQUIRE( determineOrder(-2.1,-2.0) == -2.0);
-
-      }
-    }
-  }
 }
-
-SCENARIO("Appproximating the hypotenuse"){
-  GIVEN("two lengths of two sides of a right triangle; a < b ") {
-    // double a, b, h;
-    WHEN("we try to approximate the hypotenuse"){
-      THEN("it should return the approximated hypotenuse") {
-        REQUIRE( approximateHypotenus(1.0,1.0) == 1.5);
-        REQUIRE( approximateHypotenus(2.0,10.0) == 7);
-        REQUIRE( approximateHypotenus(1.0,12.2) == 7.1);
-        REQUIRE( approximateHypotenus(1.0,100.0) == 51);
-
-      }
-    }
-  }
-}
-
-
-SCENARIO("Calculating the hypotenuse"){
-  GIVEN("two lengths of two sides of a right triangle; a < b ") {
-    // double a, b, h;
-    WHEN("two sides are given"){
-      THEN("it should decided which is larger and report that"){
-        REQUIRE( calculateHypotenuseWithPyth(2,2) == 2.8284271247);
-        REQUIRE( calculateHypotenuseWithPyth(10,11) == 14.8661);
-        REQUIRE( calculateHypotenuseWithPyth(11,30) == 31.9531);
-        REQUIRE( calculateHypotenuseWithPyth(90,20) == 92.1954);
-        REQUIRE( calculateHypotenuseWithPyth(91.13344,33.3) == 97.0268);
-
-      }
-    }
-  }
-}
+//
+//
+// SCENARIO("Getting the order of the given args"){
+//   GIVEN("two lengths of two sides of a right triangle; a < b ") {
+//     // double a, b, h;
+//     WHEN("two sides are given"){
+//       THEN("it should decided which is larger and report that"){
+//         REQUIRE( determineOrder(2,1) == 2.0);
+//         REQUIRE( determineOrder(2,3) == 3.0);
+//         REQUIRE( determineOrder(2,2) == true);
+//         REQUIRE( determineOrder(2.1,-2) == 2.1);
+//         REQUIRE( determineOrder(-2.1,-2.0) == -2.0);
+//
+//       }
+//     }
+//   }
+// }
+//
+// SCENARIO("Appproximating the hypotenuse"){
+//   GIVEN("two lengths of two sides of a right triangle; a < b ") {
+//     // double a, b, h;
+//     WHEN("we try to approximate the hypotenuse"){
+//       THEN("it should return the approximated hypotenuse") {
+//         REQUIRE( approximateHypotenus(1.0,1.0) == 1.5);
+//         REQUIRE( approximateHypotenus(2.0,10.0) == 7);
+//         REQUIRE( approximateHypotenus(1.0,12.2) == 7.1);
+//         REQUIRE( approximateHypotenus(1.0,100.0) == 51);
+//
+//       }
+//     }
+//   }
+// }
+//
+//
+// SCENARIO("Calculating the hypotenuse"){
+//   GIVEN("two lengths of two sides of a right triangle; a < b ") {
+//     // double a, b, h;
+//     WHEN("two sides are given"){
+//       THEN("it should decided which is larger and report that"){
+//         REQUIRE( calculateHypotenuseWithPyth(2,2) == 2.8284271247);
+//         REQUIRE( calculateHypotenuseWithPyth(10,11) == 14.8661);
+//         REQUIRE( calculateHypotenuseWithPyth(11,30) == 31.9531);
+//         REQUIRE( calculateHypotenuseWithPyth(90,20) == 92.1954);
+//         REQUIRE( calculateHypotenuseWithPyth(91.13344,33.3) == 97.0268);
+//
+//       }
+//     }
+//   }
+// }
